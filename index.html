@@ -12,43 +12,6 @@
       crossorigin="anonymous"
     />
 
-    <!-- <script>
-      function submitForm() {
-        const email = document.getElementById("email").value;
-        const firstName = document.getElementById("firstName").value;
-        const lastName = document.getElementById("lastName").value;
-        const terms = document.getElementById("terms").checked;
-
-        if (email === "" || firstName === "" || lastName === "" || !terms) {
-          alert(
-            "Please fill all the fields and agree to the terms and conditions"
-          );
-        } else {
-          alert("Form submitted successfully");
-        }
-      }
-      function showProject(target) {
-        const project1 = document.getElementById("project_1");
-        const project2 = document.getElementById("project_2");
-        const project3 = document.getElementById("project_3");
-        const projectImage = document.getElementById("project_image");
-
-        // Remove active class from all project description boxes and add active class to the desc box which is clicked
-        project1.classList.remove("active");
-        project2.classList.remove("active");
-        project3.classList.remove("active");
-        target.classList.add("active");
-
-        // change image based on which project description box is clicked
-        if (target.id === "project_1") {
-          projectImage.src = "assets/1-2.png";
-        } else if (target.id === "project_2") {
-          projectImage.src = "assets/image.png";
-        } else if (target.id === "project_3") {
-          projectImage.src = "assets/2-2.png";
-        }
-      }
-    </script> -->
   </head>
   <body>
     <section id="hero_section">
@@ -473,57 +436,7 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
-    <!-- <script>
-      let currentIndex = 0;
-      const items = document.querySelectorAll(".slider-item");
-      const totalItems = items.length;
-      const dots = document.querySelectorAll(".dot");
-      let interval;
-      let timeout;
-
-      function updateSlider() {
-        const sliderWrapper = document.querySelector(".slider-wrapper");
-        sliderWrapper.style.transform = `translateX(-${
-          currentIndex * (370 + 30)
-        }px)`;
-        dots.forEach((dot) => dot.classList.remove("active"));
-        dots[currentIndex].classList.add("active");
-      }
-
-      function startSlider() {
-        interval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % totalItems;
-          updateSlider();
-        }, 3000);
-      }
-
-      function stopSlider() {
-        clearInterval(interval);
-      }
-
-      function restartSlider() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          startSlider();
-        }, 3000);
-      }
-
-      function jumpToSlide(index) {
-        currentIndex = index;
-        updateSlider();
-        stopSlider();
-        restartSlider();
-      }
-
-      items.forEach((item) => {
-        item.addEventListener("click", () => {
-          stopSlider();
-          restartSlider();
-        });
-      });
-
-      startSlider();
-    </script> -->
+   
     <script src="index.js"></script>
   </body>
 </html>

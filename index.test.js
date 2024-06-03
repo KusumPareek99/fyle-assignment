@@ -6,7 +6,7 @@ let page;
 beforeAll(async () => {
   browser = await puppeteer.launch({ headless: false });
   page = await browser.newPage();
-  await page.goto("file://" + __dirname + "/index.html"); // Update the path to your index.html file
+  await page.goto("file://" + __dirname + "/index.html");
 });
 
 afterAll(async () => {
@@ -31,8 +31,6 @@ describe("Home Page Functionalities", () => {
     await page.click("#terms");
     await page.click("button.contact_btn");
 
-    // Normally you'd mock the network request and assert the form data
-    // Here we're just checking if the alert shows up
     page.on("dialog", async (dialog) => {
       expect(dialog.message()).toContain("Form submitted successfully");
       await dialog.dismiss();
@@ -61,11 +59,11 @@ describe("Home Page Functionalities", () => {
   test("Read More button in the slider opens fylehq.com in a new tab", async () => {
     await page.waitForSelector(".read_more_btn");
     const [newPage] = await Promise.all([
-      new Promise(resolve => page.once("popup", resolve)),
+      new Promise((resolve) => page.once("popup", resolve)),
       page.click(".read_more_btn"),
     ]);
-    await newPage.waitForLoadState('domcontentloaded');
-    expect(newPage.url()).toBe('https://www.fylehq.com/');
+    await newPage.waitForLoadState("domcontentloaded");
+    expect(newPage.url()).toBe("https://www.fylehq.com/");
   });
 
   test("OUR PROJECT section image changes on clicking the content on the right", async () => {
@@ -87,10 +85,10 @@ describe("Home Page Functionalities", () => {
 
   test("Experts Growth section highlights on hover", async () => {
     await page.hover(".expert_box");
-  const bgColor = await page.$eval(
-    ".expert_box",
-    el => window.getComputedStyle(el).backgroundColor
-  );
-  expect(bgColor).toBe("rgba(0, 0, 0, 0.1)");
+    const bgColor = await page.$eval(
+      ".expert_box",
+      (el) => window.getComputedStyle(el).backgroundColor
+    );
+    expect(bgColor).toBe("rgba(0, 0, 0, 0.1)");
   });
 });
